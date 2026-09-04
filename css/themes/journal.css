@@ -1,0 +1,18 @@
+/* 温暖手账风（默认主题）—— doc/03 §2.1 */
+:root,
+:root[data-theme="journal"] {
+  --bg: #FFF9F0;
+  --bg-soft: #FFF3E2;
+  --card: #FFFFFF;
+  --primary: #F4A7B9;
+  --primary-soft: #FCE4EA;
+  --accent: #8EC5B6;
+  --accent-2: #F7D774;
+  --text: #5A4A42;
+  --text-soft: #9C8A80;
+  --line: #F0DFC8;
+  --danger: #E8886C;
+  --font-title: "LXGW WenKai", "霞鹜文楷", "Kaiti SC", "STKaiti", "KaiTi", cursive;
+  --font-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --radius-card: 20px;
+}

@@ -1,0 +1,17 @@
+/* 梦幻星空风 —— doc/03 §2.2 */
+:root[data-theme="dream"] {
+  --bg: #F6F3FF;
+  --bg-soft: #EFE9FF;
+  --card: #FFFFFF;
+  --primary: #9B8CE6;
+  --primary-soft: #E9E4FF;
+  --accent: #7FC8E8;
+  --accent-2: #FFC7DE;
+  --text: #4A4460;
+  --text-soft: #8B85A3;
+  --line: #E0DAF2;
+  --danger: #E58FA2;
+  --font-title: "LXGW WenKai", "霞鹜文楷", "Kaiti SC", "STKaiti", "KaiTi", cursive;
+  --font-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --radius-card: 24px;
+}

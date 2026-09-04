@@ -1,0 +1,17 @@
+/* 简约现代风 —— doc/03 §2.3 */
+:root[data-theme="minimal"] {
+  --bg: #FAFAF8;
+  --bg-soft: #F2F2EE;
+  --card: #FFFFFF;
+  --primary: #D98E9C;
+  --primary-soft: #F6E9EC;
+  --accent: #9AA8A0;
+  --accent-2: #D9C8A9;
+  --text: #3D3A37;
+  --text-soft: #8A8580;
+  --line: #E5E2DC;
+  --danger: #C4705F;
+  --font-title: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --font-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --radius-card: 16px;
+}

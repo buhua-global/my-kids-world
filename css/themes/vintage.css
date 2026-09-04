@@ -1,0 +1,17 @@
+/* 复古日记风 —— doc/03 §2.4 */
+:root[data-theme="vintage"] {
+  --bg: #F5EDDC;
+  --bg-soft: #EFE4CC;
+  --card: #FAF5E8;
+  --primary: #B0714B;
+  --primary-soft: #EAD9C6;
+  --accent: #7C8C6E;
+  --accent-2: #C9A66B;
+  --text: #4F4034;
+  --text-soft: #8C7B6A;
+  --line: #DCCDB2;
+  --danger: #A9554C;
+  --font-title: "LXGW WenKai", "霞鹜文楷", "Kaiti SC", "STKaiti", "KaiTi", cursive;
+  --font-body: "Kaiti SC", "STKaiti", "KaiTi", "PingFang SC", "Hiragino Sans GB", serif;
+  --radius-card: 18px;
+}
