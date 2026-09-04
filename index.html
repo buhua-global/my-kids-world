@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="journal">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>女儿的世界</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("dw-theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="css/themes/journal.css" />
+  <link rel="stylesheet" href="css/themes/dream.css" />
+  <link rel="stylesheet" href="css/themes/minimal.css" />
+  <link rel="stylesheet" href="css/themes/vintage.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <nav class="topnav">
+    <div class="wrap">
+      <a class="nav-brand" href="index.html">🌸 女儿的世界</a>
+      <div class="nav-links">
+        <a class="nav-link active" href="index.html">首页</a>
+        <a class="nav-link" href="pages/archive.html">女儿的小宇宙</a>
+        <a class="nav-link" href="pages/glossary.html">黑话词典</a>
+        <div class="theme-zone">
+          <button type="button" class="theme-btn" aria-label="切换主题" aria-haspopup="menu">🎨</button>
+          <div class="theme-pop" role="menu" aria-label="选择主题"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <header class="hero">
+      <h1 id="greeting">欢迎回家</h1>
+      <p class="hero-sub">这里不是调查问卷，是女儿世界的一扇小窗——慢慢看，不用急。</p>
+      <div class="tip-card">
+        <span class="tip-icon">🌼</span>
+        <div>
+          <div class="tip-label">今日小贴士</div>
+          <p id="tip-text" class="mt-0"></p>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">👧 女儿的小宇宙</h2>
+      <p class="section-desc">她喜欢的作品、爱豆、游戏和歌——先认识，再靠近。</p>
+      <a class="archive-card" id="archive-card" href="pages/archive.html">
+        <span class="avatar" id="avatar">🌸</span>
+        <div>
+          <div class="a-name" id="a-name">女儿</div>
+          <div class="a-meta" id="a-meta">点这里记下她的小宇宙</div>
+        </div>
+        <span class="a-edit">编辑档案 →</span>
+      </a>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">🌍 她的八个世界</h2>
+      <p class="section-desc">每个世界都有一份「初中篇 / 高中篇」和三层内容：是什么、她为什么喜欢、怎么聊。</p>
+      <div class="grid-modules" id="module-grid"></div>
+    </section>
+
+    <hr class="divider" />
+
+    <section class="section">
+      <h2 class="section-title">💌 写给家长的话</h2>
+      <div class="letter">
+        <p>十几岁的女孩，正在用她自己的方式认识世界。她追的番、听的歌、玩的游戏、挂在嘴边的词，都不是「问题」，而是她在练习成为谁。</p>
+        <p>这份小册子不评判任何喜好，也不提供「改造方案」。它只想帮你看懂她的世界，让饭桌上的对话多一个开头。你不需要成为专家，也不需要样样都懂——好奇本身就足够打开一扇门。</p>
+        <p>所有信息只保存在你自己的浏览器里，不会上传，也没有算法。哪天想重新开始，清空就好。</p>
+        <p class="text-soft" style="margin-top:10px">—— 慢慢来，to know is to see.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    女儿的世界 v0.1 · 数据仅保存在本机浏览器 · to know is to see
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/archive.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    (function () {
+      var view = archiveView();
+      var a = view.archive;
+      var nick = (a.nickname || "").trim();
+
+      var greeting = document.getElementById("greeting");
+      greeting.textContent = nick ? "欢迎回家，来看看" + nick : "欢迎回家";
+
+      document.getElementById("tip-text").textContent = todayTip();
+
+      var avatar = document.getElementById("avatar");
+      avatar.textContent = nick ? nick.charAt(0) : "🌸";
+
+      var nameEl = document.getElementById("a-name");
+      if (view.isExample) {
+        nameEl.innerHTML = esc(nick || "女儿") + ' <span class="badge-example">示例档案</span>';
+      } else {
+        nameEl.textContent = nick || "女儿";
+      }
+
+      var metaEl = document.getElementById("a-meta");
+      var recent0 = a.recent && a.recent[0];
+      if (recent0 && recent0.text) {
+        var t = recent0.text;
+        metaEl.textContent = (a.grade || "还没填年级") + " · 最近在追：" + (t.length > 22 ? t.slice(0, 22) + "…" : t);
+      } else {
+        metaEl.textContent = (a.grade || "还没填年级") + " · 点这里记下她最近在追什么";
+      }
+
+      document.getElementById("module-grid").innerHTML = window.DATA.modules
+        .map(moduleCardHTML)
+        .join("");
+
+      initThemeSwitcher();
+    })();
+  </script>
+</body>
+</html>
