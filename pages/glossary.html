@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="journal">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>黑话词典 · 女儿的世界</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("dw-theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="../css/themes/journal.css" />
+  <link rel="stylesheet" href="../css/themes/dream.css" />
+  <link rel="stylesheet" href="../css/themes/minimal.css" />
+  <link rel="stylesheet" href="../css/themes/vintage.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+  <nav class="topnav">
+    <div class="wrap">
+      <a class="nav-brand" href="../index.html">🌸 女儿的世界</a>
+      <div class="nav-links">
+        <a class="nav-link" href="../index.html">首页</a>
+        <a class="nav-link" href="archive.html">女儿的小宇宙</a>
+        <a class="nav-link active" href="glossary.html">黑话词典</a>
+        <div class="theme-zone">
+          <button type="button" class="theme-btn" aria-label="切换主题" aria-haspopup="menu">🎨</button>
+          <div class="theme-pop" role="menu" aria-label="选择主题"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <header class="section">
+      <a class="back-link" href="../index.html">← 回到首页</a>
+      <h1 class="section-title">📖 黑话词典</h1>
+      <p class="section-desc">女儿嘴里蹦出来的词，在这里查意思、学接话。查不到就空着——她愿意讲的时候，认真听就是最好的词典。</p>
+      <input type="search" id="g-search" class="search-box" placeholder="搜一个词，比如：破防、谷子、本命…" aria-label="搜索词条" />
+    </header>
+
+    <div class="tabs" id="g-tabs" role="tablist" aria-label="按世界筛选"></div>
+
+    <div class="gloss-grid" id="g-list"></div>
+    <div class="gloss-empty" id="g-empty" hidden>没找到这个词……换个说法试试？</div>
+  </main>
+
+  <footer class="site-footer">
+    女儿的世界 v0.1 · 数据仅保存在本机浏览器 · to know is to see
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/archive.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/page-glossary.js"></script>
+</body>
+</html>
