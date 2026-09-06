@@ -7,6 +7,10 @@
    ============================================================ */
 
 (function () {
+  var FACTION_PRESETS = [
+    "学霸", "二次元", "追星族", "地雷妹", "辣妹", "运动系", "综合型"
+  ];
+
   var TAG_PRESETS = [
     "慢热", "细腻", "社恐", "e人", "i人", "开朗", "安静",
     "爱画画", "爱运动", "追星族", "二次元", "游戏迷", "书虫", "音乐控"
@@ -30,9 +34,13 @@
       esc(nick || "女儿") + (v.isExample ? ' <span class="badge-example">示例档案</span>' : "");
     el("p-intro").textContent = a.intro || "还没有介绍她——点下面的「编辑档案」写一句吧。";
 
-    el("p-tags").innerHTML = (a.tags && a.tags.length)
+    var factionChip = a.faction
+      ? '<span class="chip chip-faction">' + esc(a.faction) + "</span>"
+      : "";
+    var tagChips = (a.tags && a.tags.length)
       ? a.tags.map(function (t) { return '<span class="chip">' + esc(t) + "</span>"; }).join("")
-      : '<span class="empty-hint">还没选标签</span>';
+      : "";
+    el("p-tags").innerHTML = (factionChip + tagChips) || '<span class="empty-hint">还没选派系和标签</span>';
 
     var kv = [
       ["喜欢的作品", (a.works || []).join("、")],
@@ -87,10 +95,21 @@
     }).join("");
   }
 
+  function factionChipsHTML(selected) {
+    return FACTION_PRESETS.map(function (t) {
+      var on = selected === t;
+      return (
+        '<button type="button" class="chip chip-btn" data-faction="' + esc(t) +
+        '" aria-pressed="' + (on ? "true" : "false") + '">' + esc(t) + "</button>"
+      );
+    }).join("");
+  }
+
   function openEdit() {
     var a = current().archive;
     el("f-nickname").value = a.nickname || "";
     el("f-grade").value = a.grade || "初二";
+    el("f-faction").innerHTML = factionChipsHTML(a.faction || "");
     el("f-tags").innerHTML = tagChipsHTML(a.tags);
     el("f-intro").value = a.intro || "";
     el("f-works").value = (a.works || []).join("、");
@@ -115,6 +134,16 @@
       .filter(Boolean);
   }
 
+  el("f-faction").addEventListener("click", function (e) {
+    var b = e.target.closest(".chip-btn");
+    if (!b) return;
+    var wasOn = b.getAttribute("aria-pressed") === "true";
+    el("f-faction").querySelectorAll('.chip-btn[aria-pressed="true"]').forEach(function (x) {
+      x.setAttribute("aria-pressed", "false");
+    });
+    b.setAttribute("aria-pressed", wasOn ? "false" : "true");
+  });
+
   el("f-tags").addEventListener("click", function (e) {
     var b = e.target.closest(".chip-btn");
     if (!b) return;
@@ -127,9 +156,11 @@
     el("f-tags").querySelectorAll('.chip-btn[aria-pressed="true"]').forEach(function (b) {
       chosen.push(b.dataset.tag);
     });
+    var factionEl = el("f-faction").querySelector('.chip-btn[aria-pressed="true"]');
     saveArchive({
       nickname: el("f-nickname").value.trim(),
       grade: el("f-grade").value,
+      faction: factionEl ? factionEl.dataset.faction : "",
       tags: chosen,
       intro: el("f-intro").value.trim(),
       works: splitList(el("f-works").value),

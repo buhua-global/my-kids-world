@@ -469,6 +469,7 @@ button {
 }
 .chip-btn { min-height: 34px; transition: background 0.2s ease, border-color 0.2s ease; }
 .chip-btn[aria-pressed="true"] { background: var(--primary-soft); border-color: var(--primary); font-weight: 600; }
+.chip-faction { background: var(--primary-soft); border-color: var(--primary); font-weight: 600; }
 
 .kv-list { display: grid; grid-template-columns: 1fr; gap: 12px; }
 @media (min-width: 640px) { .kv-list { grid-template-columns: repeat(2, 1fr); } }

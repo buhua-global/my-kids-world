@@ -4,6 +4,7 @@ window.DATA = {
   archiveExample: {
     nickname: "小满",
     grade: "初二",
+    faction: "二次元",
     tags: ["慢热", "细腻"],
     intro: "一个喜欢画画和看番的女孩",
     works: ["《排球少年》", "名侦探柯南"],
@@ -22,7 +23,7 @@ window.DATA = {
       color: "#F4A7B9",
       tagline: "动漫、漫画与她的角色朋友们",
       keywords: ["排球少年", "柯南", "番", "动漫", "漫画"],
-      vocab: ["谷子", "吧唧", "痛包", "推し", "二创", "烫门/冷门", "无料", "现充"],
+      vocab: ["谷子", "吧唧", "痛包", "推し", "二创", "烫门/冷门", "无料", "现充", "JK制服", "地雷系"],
       junior: {
         what: [
           {
@@ -492,7 +493,7 @@ window.DATA = {
       color: "#E8A37F",
       tagline: "她的第二社交现场",
       keywords: ["小红书", "抖音", "b站", "微博", "qq", "momo"],
-      vocab: ["破防", "6", "尊嘟假嘟", "i人/e人", "显眼包", "momo", "电子榨菜", "发疯文学", "精神状态良好", "已老实", "退退退"],
+      vocab: ["破防", "6", "尊嘟假嘟", "i人/e人", "显眼包", "momo", "电子榨菜", "发疯文学", "精神状态良好", "已老实", "退退退", "辣妹"],
       junior: {
         what: [
           {
@@ -783,6 +784,8 @@ window.DATA = {
     { term: "二创", meaning: "基于原作的二次创作（同人图/文/视频）", reply: "「你也有喜欢的同人作品？」", module: "anime-goods", hot: false },
     { term: "无料", meaning: "免费派发的自制小周边", reply: "「无料是大家互相送的心意呀」", module: "anime-goods", hot: false },
     { term: "现充", meaning: "「现实中充实的人」，指线下生活丰富", reply: "「你就是我的现充呀」", module: "anime-goods", hot: false },
+    { term: "JK制服", meaning: "女子高中生（joshi kousei）的缩写，指格裙＋衬衫那类校服风穿搭。日系偏正统校服感：深色、裙长过膝、版型宽松；中系偏「好看优先」的时装感：浅色大格柄、收腰、裙更短", reply: "「你这身是日系还是中系？」——认得出款式，比一句「真好看」更让她惊喜", module: "anime-goods", hot: false },
+    { term: "地雷系", meaning: "源自日本的穿搭风格：粉黑配色、蝴蝶结、厚底鞋，可爱里带一点阴郁；「地雷妹」也常指喜欢这种风格、心思细腻敏感的女生", reply: "别急着当成「问题穿搭」，一句「这个蝴蝶结挺特别」就够——她愿意讲时，会告诉你整套门道", module: "anime-goods", hot: false },
     // —— 追星与偶像文化 ——
     { term: "本命", meaning: "最喜欢的偶像", reply: "「你本命是谁？给我安利一下」", module: "idol-star", hot: true },
     { term: "墙头", meaning: "临时喜欢的其他偶像", reply: "「最近墙头换了吗？」", module: "idol-star", hot: false },
@@ -822,6 +825,7 @@ window.DATA = {
     { term: "电音/蹦迪", meaning: "电子音乐与夜店舞曲文化（边缘爱好）", reply: "「你喜欢的是那份节奏感吧」", module: "music-trend", hot: false },
     // —— 社交媒体 ——
     { term: "momo", meaning: "小红书等平台的匿名默认昵称", reply: "「momo 大军，是隐身的自由呀」", module: "social-media", hot: false },
+    { term: "辣妹", meaning: "关键词是美甲、睫毛、自拍和自信感穿搭，源自日本辣妹（ギャル）文化，现在主要活在短视频和小红书里", reply: "「这个美甲在哪做的？挺好看」比「化妆给谁看」多打开一扇门", module: "social-media", hot: false },
     // —— 情感世界 ——
     { term: "emo", meaning: "情绪低落、忧郁的状态", reply: "「今天有点 emo？想聊聊吗」", module: "emotion-mind", hot: true },
     { term: "内耗", meaning: "精神上的自我消耗、反复纠结", reply: "「内耗的时候你会做什么？」", module: "emotion-mind", hot: false },
