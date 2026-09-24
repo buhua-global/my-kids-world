@@ -36,9 +36,16 @@ function initThemeSwitcher() {
     o.classList.toggle("current", o.dataset.themeId === currentTheme());
   });
 
+  btn.setAttribute("aria-expanded", "false");
+
+  function setOpen(open) {
+    pop.classList.toggle("open", open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
   btn.addEventListener("click", (e) => {
     e.stopPropagation();
-    pop.classList.toggle("open");
+    setOpen(!pop.classList.contains("open"));
   });
 
   pop.addEventListener("click", (e) => {
@@ -53,9 +60,12 @@ function initThemeSwitcher() {
   });
 
   document.addEventListener("click", (e) => {
-    if (!zone.contains(e.target)) pop.classList.remove("open");
+    if (!zone.contains(e.target)) setOpen(false);
   });
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") pop.classList.remove("open");
+    if (e.key === "Escape" && pop.classList.contains("open")) {
+      setOpen(false);
+      btn.focus();
+    }
   });
 }

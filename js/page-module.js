@@ -101,4 +101,5 @@
   syncSeg();
   render();
   initThemeSwitcher();
+  initReveal();
 })();

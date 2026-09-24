@@ -1,4 +1,4 @@
-/* 简约现代风 —— doc/03 §2.3 */
+/* 简约现代风 —— doc/03 §2.3 · design.md「手工艺术书」质感层（装饰密度：零） */
 :root[data-theme="minimal"] {
   --bg: #FAFAF8;
   --bg-soft: #F2F2EE;
@@ -11,7 +11,64 @@
   --text-soft: #8A8580;
   --line: #E5E2DC;
   --danger: #C4705F;
+  --seal: var(--primary);
   --font-title: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
   --font-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
   --radius-card: 16px;
+  --shadow-card: 0 1px 2px color-mix(in srgb, var(--text) 5%, transparent);
+  --shadow-lift: 0 8px 20px color-mix(in srgb, var(--text) 8%, transparent);
 }
+
+/* 纸面：暖白 + 极淡方格，靠留白与排版 */
+:root[data-theme="minimal"] body {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--line) 30%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--line) 30%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* 贴纸/胶带/波浪装饰退场；模块品牌色以顶部细条保留 */
+:root[data-theme="minimal"] .module-card::before,
+:root[data-theme="minimal"] .tip-card::before,
+:root[data-theme="minimal"] .sticker::after {
+  display: none;
+}
+:root[data-theme="minimal"] .module-card::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 5px;
+  background: var(--mcolor, var(--primary));
+}
+:root[data-theme="minimal"] .sticker { transform: none; }
+:root[data-theme="minimal"] .section-title::after {
+  width: 34px;
+  height: 3px;
+  border-radius: 2px;
+  opacity: 1;
+  -webkit-mask: none;
+  mask: none;
+}
+:root[data-theme="minimal"] .hero h1::after {
+  width: 44px;
+  height: 4px;
+  border-radius: 2px;
+  -webkit-mask: none;
+  mask: none;
+}
+:root[data-theme="minimal"] .divider {
+  height: 1px;
+  width: 100%;
+  max-width: 240px;
+  -webkit-mask: none;
+  mask: none;
+}
+:root[data-theme="minimal"] .site-footer::before {
+  width: 40px;
+  height: 3px;
+  border-radius: 2px;
+  -webkit-mask: none;
+  mask: none;
+}
+:root[data-theme="minimal"] .method-no { transform: none; }
+:root[data-theme="minimal"] .method-card:nth-child(even) .method-no { transform: none; }

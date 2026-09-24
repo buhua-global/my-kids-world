@@ -80,4 +80,5 @@
   el("g-tabs").querySelector('.tab-btn[data-tab="all"]').setAttribute("aria-selected", "true");
   render();
   initThemeSwitcher();
+  initReveal();
 })();

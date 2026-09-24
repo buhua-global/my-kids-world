@@ -48,4 +48,5 @@
     .join("");
 
   initThemeSwitcher();
+  initReveal();
 })();

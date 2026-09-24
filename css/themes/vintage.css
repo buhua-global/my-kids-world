@@ -1,4 +1,4 @@
-/* 复古日记风 —— doc/03 §2.4 */
+/* 复古日记风 —— doc/03 §2.4 · design.md「手工艺术书」质感层 */
 :root[data-theme="vintage"] {
   --bg: #F5EDDC;
   --bg-soft: #EFE4CC;
@@ -11,7 +11,17 @@
   --text-soft: #8C7B6A;
   --line: #DCCDB2;
   --danger: #A9554C;
+  --seal: #A9554C;
   --font-title: "LXGW WenKai", "霞鹜文楷", "Kaiti SC", "STKaiti", "KaiTi", cursive;
   --font-body: "Kaiti SC", "STKaiti", "KaiTi", "PingFang SC", "Hiragino Sans GB", serif;
   --radius-card: 18px;
+}
+
+/* 纸面：牛皮纸纤维噪点 + 极淡方格 */
+:root[data-theme="vintage"] body {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.33 0 0 0 0 0.20 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)'/%3E%3C/svg%3E"),
+    linear-gradient(color-mix(in srgb, var(--line) 40%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--line) 40%, transparent) 1px, transparent 1px);
+  background-size: 280px 280px, 30px 30px, 30px 30px;
 }

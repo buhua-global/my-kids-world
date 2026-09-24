@@ -91,3 +91,21 @@ function glossLink(term, extraClass) {
     "</a>"
   );
 }
+
+/* 滚动轻浮现：给元素加 .reveal，进入视口时加 .in（一次性）。
+   无 IntersectionObserver 或 reduced-motion 时直接可见，不隐藏内容。 */
+function initReveal(scope) {
+  if (!("IntersectionObserver" in window)) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var els = (scope || document).querySelectorAll(".reveal");
+  if (!els.length) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        en.target.classList.add("in");
+        io.unobserve(en.target);
+      }
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+  els.forEach(function (el) { io.observe(el); });
+}

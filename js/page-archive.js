@@ -199,4 +199,5 @@
 
   renderView();
   initThemeSwitcher();
+  initReveal();
 })();

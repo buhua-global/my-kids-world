@@ -1,4 +1,4 @@
-/* 温暖手账风（默认主题）—— doc/03 §2.1 */
+/* 温暖手账风（默认主题）—— doc/03 §2.1 · design.md「手工艺术书」质感层 */
 :root,
 :root[data-theme="journal"] {
   --bg: #FFF9F0;
@@ -12,7 +12,20 @@
   --text-soft: #9C8A80;
   --line: #F0DFC8;
   --danger: #E8886C;
+  --seal: var(--primary);
   --font-title: "LXGW WenKai", "霞鹜文楷", "Kaiti SC", "STKaiti", "KaiTi", cursive;
   --font-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
   --radius-card: 20px;
+}
+
+/* 纸面：奶油波点格 + 散落的星花与爱心涂鸦（手账本的一页） */
+:root[data-theme="journal"] body {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l1.8 8.2L22 12l-8.2 1.8L12 22l-1.8-8.2L2 12l8.2-1.8z' fill='%23F4A7B9' fill-opacity='.4'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l1.8 8.2L22 12l-8.2 1.8L12 22l-1.8-8.2L2 12l8.2-1.8z' fill='%238EC5B6' fill-opacity='.45'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21C6.8 16.6 2.6 13 2.6 8.9 2.6 6 4.9 4.2 7.4 4.2c1.8 0 3.4 1 4.6 2.7 1.2-1.7 2.8-2.7 4.6-2.7 2.5 0 4.8 1.8 4.8 4.7 0 4.1-4.2 7.7-9.4 12.1z' fill='%23F7D774' fill-opacity='.5'/%3E%3C/svg%3E"),
+    radial-gradient(color-mix(in srgb, var(--line) 62%, transparent) 1.1px, transparent 1.2px);
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+  background-position: right 5% top 190px, left 3% top 780px, left 7% top 1520px, 0 0;
+  background-size: 30px 30px, 20px 20px, 26px 26px, 22px 22px;
 }
