@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>模块 · 女儿的世界</title>
+  <title>父女对话指南 · 女儿的世界</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
   <script>
     (function () {
@@ -24,9 +24,9 @@
     <div class="wrap">
       <a class="nav-brand" href="../index.html">🌸 女儿的世界</a>
       <div class="nav-links">
-        <a class="nav-link active" href="../index.html">首页</a>
+        <a class="nav-link" href="../index.html">首页</a>
         <a class="nav-link" href="archive.html">女儿的小宇宙</a>
-        <a class="nav-link" href="guide.html">对话指南</a>
+        <a class="nav-link active" href="guide.html">对话指南</a>
         <a class="nav-link" href="glossary.html">黑话词典</a>
         <div class="theme-zone">
           <button type="button" class="theme-btn" aria-label="切换主题" aria-haspopup="menu">🎨</button>
@@ -37,38 +37,33 @@
   </nav>
 
   <main class="wrap">
-    <header class="section">
-      <a class="back-link" href="../index.html">← 回到首页</a>
-      <div class="profile-head">
-        <span class="avatar" id="m-emoji">🌸</span>
-        <div>
-          <div class="p-name" id="m-title"></div>
-          <div class="p-intro" id="m-tagline"></div>
-        </div>
-      </div>
-      <div id="match-zone"></div>
-      <div class="seg" role="group" aria-label="选择学段" id="stage-seg">
-        <button type="button" class="seg-btn" data-stage="kinder" aria-pressed="false">
-          <span class="rec-dot" aria-hidden="true"></span>幼儿园篇
-        </button>
-        <button type="button" class="seg-btn" data-stage="primary" aria-pressed="false">
-          <span class="rec-dot" aria-hidden="true"></span>小学篇
-        </button>
-        <button type="button" class="seg-btn" data-stage="junior" aria-pressed="false">
-          <span class="rec-dot" aria-hidden="true"></span>初中篇
-        </button>
-        <button type="button" class="seg-btn" data-stage="senior" aria-pressed="false">
-          <span class="rec-dot" aria-hidden="true"></span>高中篇
-        </button>
-      </div>
+    <header class="hero">
+      <h1>🧭 父女对话指南</h1>
+      <p class="hero-sub" id="g-intro"></p>
     </header>
 
-    <div id="content"></div>
+    <section class="section">
+      <h2 class="section-title">🧠 七条底层原理</h2>
+      <p class="section-desc">不是鸡汤，是被反复验证的心理学共识。知道「为什么」，方法才用得活。</p>
+      <div class="layer-cards" id="g-principles"></div>
+    </section>
 
     <section class="section">
-      <h2 class="section-title">🔤 这个世界的词</h2>
-      <p class="section-desc">点一个词，去词典里看看意思和接话示范。</p>
-      <div class="chips" id="vocab-chips"></div>
+      <h2 class="section-title">🛠️ 八个实战方法</h2>
+      <p class="section-desc">每种方法都标了适用场景。挑一两个，本周就能用。</p>
+      <div class="guide-grid" id="g-methods"></div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">📐 分年龄备忘</h2>
+      <p class="section-desc">幼儿园和小学，聊天的方式完全不同。</p>
+      <div class="layer-cards" id="g-ages"></div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">🚫 六种最伤聊天的方式</h2>
+      <p class="section-desc">都是无心的，但都真实地关上过她的嘴。</p>
+      <div class="layer-cards" id="g-donts"></div>
     </section>
   </main>
 
@@ -78,8 +73,7 @@
 
   <script src="../js/data.js"></script>
   <script src="../js/ui.js"></script>
-  <script src="../js/archive.js"></script>
   <script src="../js/theme.js"></script>
-  <script src="../js/page-module.js"></script>
+  <script src="../js/page-guide.js"></script>
 </body>
 </html>

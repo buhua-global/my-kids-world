@@ -45,8 +45,10 @@ function adviceHTML(text) {
   );
 }
 
+var STAGE_LABELS = { kinder: "幼儿园篇", primary: "小学篇", junior: "初中篇", senior: "高中篇" };
+
 function stageLabel(stage) {
-  return stage === "senior" ? "高中篇" : "初中篇";
+  return STAGE_LABELS[stage] || "初中篇";
 }
 
 /* 模块卡：顶部色条颜色来自模块自身品牌色，不随主题变 */
@@ -57,7 +59,7 @@ function moduleCardHTML(m) {
     '" href="pages/module.html?id=' +
     encodeURIComponent(m.id) +
     '">' +
-    '<span class="m-stage"><i>初</i><i>高</i></span>' +
+    '<span class="m-stage"><i>幼</i><i>小</i><i>初</i><i>高</i></span>' +
     '<div class="m-emoji">' +
     esc(m.emoji) +
     "</div>" +

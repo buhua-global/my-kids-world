@@ -93,7 +93,7 @@ for (const [i, m] of (D.modules || []).entries()) {
   }
   if (!Array.isArray(m.vocab) || m.vocab.length < 3) fail(`${tag}.vocab 应为 ≥3 个词条`);
 
-  for (const stage of ["junior", "senior"]) {
+  for (const stage of ["kinder", "primary", "junior", "senior"]) {
     const s = m[stage];
     if (!s) { fail(`${tag}.${stage} 缺失`); continue; }
     checkCards(s.what, `${tag}.${stage}.what`);
@@ -134,6 +134,34 @@ for (const m of D.modules || []) {
   }
 }
 
+// ---- guide ----
+const Gd = D.guide || {};
+if (!N(Gd.intro)) fail("guide.intro 缺失");
+const checkList = (arr, label, n, keys) => {
+  if (!Array.isArray(arr) || arr.length < n) {
+    fail(`${label} 应为 ≥${n} 条的数组，实际 ${Array.isArray(arr) ? arr.length : "非数组"}`);
+    return;
+  }
+  for (const [i, x] of arr.entries()) {
+    for (const k of keys) if (!N(x?.[k])) fail(`${label}[${i}].${k} 缺失`);
+  }
+};
+checkList(Gd.principles, "guide.principles", 5, ["title", "body"]);
+checkList(Gd.methods, "guide.methods", 6, ["title", "when", "body"]);
+checkList(Gd.donts, "guide.donts", 4, ["title", "body"]);
+if (!Array.isArray(Gd.ages) || Gd.ages.length !== 2) {
+  fail(`guide.ages 应为 2 组（幼儿园/小学），实际 ${Array.isArray(Gd.ages) ? Gd.ages.length : "非数组"}`);
+} else {
+  const wantStages = ["kinder", "primary"];
+  Gd.ages.forEach((a, i) => {
+    if (a?.stage !== wantStages[i]) fail(`guide.ages[${i}].stage 应为 ${wantStages[i]}`);
+    if (!N(a?.title)) fail(`guide.ages[${i}].title 缺失`);
+    if (!Array.isArray(a?.points) || a.points.length < 3 || !a.points.every(N)) {
+      fail(`guide.ages[${i}].points 应为 ≥3 条非空字符串`);
+    }
+  });
+}
+
 // ---- tips ----
 if (!Array.isArray(D.tips) || D.tips.length < 10 || !D.tips.every(N)) {
   fail(`tips 应为 ≥10 条非空字符串（今日小贴士轮换用）`);
@@ -146,5 +174,5 @@ if (errors.length) {
 }
 const hotCount = (G || []).filter((g) => g.hot).length;
 console.log(
-  `✓ 数据校验通过：8 模块 × 初中/高中 × 三层，词典 ${(G || []).length} 条（hot ${hotCount}），tips ${D.tips.length} 条`
+  `✓ 数据校验通过：8 模块 × 幼儿园/小学/初中/高中 × 三层，词典 ${(G || []).length} 条（hot ${hotCount}），tips ${D.tips.length} 条，指南 ${Gd.principles?.length || 0} 原理 + ${Gd.methods?.length || 0} 方法`
 );

@@ -31,9 +31,12 @@ function clearArchive() {
   } catch (e) {}
 }
 
-/* 年级 → 学段：高一是高一、高二是高二……初一~初三都算初中篇 */
+/* 年级 → 学段：幼儿园 / 一~六年级 / 初中 / 高中，四档 */
 function gradeStage(grade) {
-  return /^高/.test(grade || "") ? "senior" : "junior";
+  var g = grade || "";
+  if (/^幼儿园/.test(g)) return "kinder";
+  if (/^[一二三四五六]年级/.test(g)) return "primary";
+  return /^高/.test(g) ? "senior" : "junior";
 }
 
 /* 统一读档视图：没存过就用示例档案，并标记 isExample 供页面提示 */
