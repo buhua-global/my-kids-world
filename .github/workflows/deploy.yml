@@ -1,12 +1,11 @@
 name: Deploy to GitHub Pages
 
-# Pages 需要仓库公开或付费套餐。开通 Pages 后（Settings → Pages →
-# Source: GitHub Actions），取消下面 push 触发的注释即可自动发布；
-# 期间可用 Actions 页面的 Run workflow 手动触发。
+# Pages 已开通（Source: GitHub Actions）。推 main 自动发布；
+# 也可在 Actions 页面手动 Run workflow。
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
 
 permissions:
   contents: read
