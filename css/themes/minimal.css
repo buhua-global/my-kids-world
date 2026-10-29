@@ -8,10 +8,12 @@
   --accent: #9AA8A0;
   --accent-2: #D9C8A9;
   --text: #3D3A37;
-  --text-soft: #8A8580;
+  --text-soft: #6E6A64;
   --line: #E5E2DC;
   --danger: #C4705F;
+  --danger-ink: #A85A48;
   --seal: var(--primary);
+  --focus-ink: #A85668;
   --font-title: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
   --font-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
   --radius-card: 16px;
@@ -27,18 +29,11 @@
   background-size: 32px 32px;
 }
 
-/* 贴纸/胶带/波浪装饰退场；模块品牌色以顶部细条保留 */
-:root[data-theme="minimal"] .module-card::before,
+/* 贴纸/胶带/波浪装饰退场；模块识别只留色块 */
 :root[data-theme="minimal"] .tip-card::before,
-:root[data-theme="minimal"] .sticker::after {
+:root[data-theme="minimal"] .sticker::after,
+:root[data-theme="minimal"] .letter::before {
   display: none;
-}
-:root[data-theme="minimal"] .module-card::after {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 5px;
-  background: var(--mcolor, var(--primary));
 }
 :root[data-theme="minimal"] .sticker { transform: none; }
 :root[data-theme="minimal"] .section-title::after {
@@ -70,5 +65,5 @@
   -webkit-mask: none;
   mask: none;
 }
-:root[data-theme="minimal"] .method-no { transform: none; }
-:root[data-theme="minimal"] .method-card:nth-child(even) .method-no { transform: none; }
+/* 简约主题：目录条目 hover 不加底色洗染，只让色块展宽 */
+:root[data-theme="minimal"] .toc-item:hover { background: transparent; }

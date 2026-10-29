@@ -15,6 +15,7 @@
       try {
         var t = localStorage.getItem("dw-theme");
         if (t) document.documentElement.dataset.theme = t;
+        if ("IntersectionObserver" in window) document.documentElement.classList.add("io");
       } catch (e) {}
     })();
   </script>
@@ -45,9 +46,9 @@
     <header class="section">
       <a class="back-link" href="../index.html">← 回到首页</a>
       <div class="profile-head">
-        <span class="avatar" id="m-emoji">🌸</span>
+        <span class="avatar mod-badge" id="m-emoji"></span>
         <div>
-          <div class="p-name" id="m-title"></div>
+          <h1 class="p-name" id="m-title"></h1>
           <div class="p-intro" id="m-tagline"></div>
         </div>
       </div>

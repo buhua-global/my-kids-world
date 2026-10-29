@@ -8,16 +8,20 @@
 
 (function () {
   var id = new URLSearchParams(location.search).get("id");
+  var mIdx = -1;
   var m = null;
   for (var i = 0; i < window.DATA.modules.length; i++) {
-    if (window.DATA.modules[i].id === id) { m = window.DATA.modules[i]; break; }
+    if (window.DATA.modules[i].id === id) { m = window.DATA.modules[i]; mIdx = i; break; }
   }
   if (!m) { location.replace("../index.html"); return; }
 
   document.title = m.title + " · 女儿的世界";
-  document.getElementById("m-emoji").textContent = m.emoji;
+  var badge = document.getElementById("m-emoji");
+  badge.textContent = (mIdx + 1 < 10 ? "0" + (mIdx + 1) : String(mIdx + 1));
+  badge.style.setProperty("--mcolor", m.color);
   document.getElementById("m-title").textContent = m.title;
   document.getElementById("m-tagline").textContent = m.tagline;
+  document.getElementById("content").style.setProperty("--mcolor", m.color);
 
   var view = archiveView();
   var a = view.archive;
@@ -42,7 +46,7 @@
       "。从这里聊起，可能最自然。</p></div>";
   } else if (view.isExample) {
     document.getElementById("match-zone").innerHTML =
-      '<div class="banner-tip">👀 现在显示的是示例档案。去<a href="archive.html">编辑小宇宙</a>，这里会更像她。</div>';
+      '<div class="banner-tip">现在显示的是示例档案。去<a href="archive.html">编辑小宇宙</a>，这里会更像她。</div>';
   }
 
   var seg = document.getElementById("stage-seg");
@@ -58,20 +62,20 @@
     }
   }
 
-  function cardHTML(c) {
-    return '<div class="info-card"><h4>' + esc(c.title) + "</h4><p>" + esc(c.body) + "</p></div>";
+  function noteHTML(c) {
+    return '<div class="note"><h4>' + esc(c.title) + "</h4><p>" + esc(c.body) + "</p></div>";
   }
 
   function render() {
     var c = m[current];
     var html = "";
 
-    html += '<div class="layer">' + stickerHTML("what") + '<div class="layer-cards">';
-    html += (c.what || []).map(cardHTML).join("");
+    html += '<div class="layer">' + stickerHTML("what") + '<div class="notes">';
+    html += (c.what || []).map(noteHTML).join("");
     html += "</div></div>";
 
-    html += '<div class="layer">' + stickerHTML("why") + '<div class="layer-cards">';
-    html += (c.why || []).map(cardHTML).join("");
+    html += '<div class="layer">' + stickerHTML("why") + '<div class="notes">';
+    html += (c.why || []).map(noteHTML).join("");
     html += "</div></div>";
 
     html += '<div class="layer">' + stickerHTML("how");

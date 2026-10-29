@@ -3,7 +3,7 @@ window.THEMES = [
   { id: "journal", name: "温暖手账", swatches: ["#F4A7B9", "#8EC5B6", "#F7D774"] },
   { id: "dream", name: "梦幻星空", swatches: ["#9B8CE6", "#7FC8E8", "#FFC7DE"] },
   { id: "minimal", name: "简约现代", swatches: ["#D98E9C", "#9AA8A0", "#D9C8A9"] },
-  { id: "vintage", name: "复古日记", swatches: ["#B0714B", "#7C8C6E", "#C9A66B"] }
+  { id: "vintage", name: "复古日记", swatches: ["#B0714B", "#7C8C6E", "#D4B37C"] }
 ];
 
 const THEME_KEY = "dw-theme";

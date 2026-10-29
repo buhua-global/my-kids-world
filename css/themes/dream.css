@@ -8,10 +8,12 @@
   --accent: #7FC8E8;
   --accent-2: #FFC7DE;
   --text: #4A4460;
-  --text-soft: #8B85A3;
+  --text-soft: #6E6890;
   --line: #E0DAF2;
   --danger: #E58FA2;
+  --danger-ink: #B14F68;
   --seal: var(--primary);
+  --focus-ink: #6A5CA8;
   --font-title: "LXGW WenKai", "霞鹜文楷", "Kaiti SC", "STKaiti", "KaiTi", cursive;
   --font-body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
   --radius-card: 24px;

@@ -9,7 +9,11 @@
   var el = function (id) { return document.getElementById(id); };
 
   var moduleName = {};
-  window.DATA.modules.forEach(function (m) { moduleName[m.id] = m.title; });
+  var moduleColor = {};
+  window.DATA.modules.forEach(function (m) {
+    moduleName[m.id] = m.title;
+    moduleColor[m.id] = m.color;
+  });
 
   var TABS = [{ id: "all", label: "全部" }, { id: "general", label: "通用" }]
     .concat(window.DATA.modules.map(function (m) { return { id: m.id, label: m.title }; }));
@@ -23,19 +27,22 @@
     );
   }).join("");
 
-  function cardHTML(g) {
+  /* 词条行：词头 + 模块色点 + 释义 + 展开「可以这样接」，点线分隔，不做卡片墙 */
+  function rowHTML(g) {
     var modTag = g.module === "general"
       ? '<span class="g-module">通用</span>'
       : '<span class="g-module">' + esc(moduleName[g.module] || "") + "</span>";
     return (
-      '<div class="gloss-card">' +
-      '<div class="g-term">' + esc(g.term) + modTag +
-      (g.hot ? '<span class="g-hot">🔥 热</span>' : "") +
+      '<article class="dict-row" style="--mcolor:' +
+      (moduleColor[g.module] || "var(--accent)") +
+      '">' +
+      '<div class="d-term">' + esc(g.term) + modTag +
+      (g.hot ? '<span class="g-hot">热</span>' : "") +
       "</div>" +
-      '<div class="g-meaning">' + esc(g.meaning) + "</div>" +
+      '<div class="d-meaning">' + esc(g.meaning) + "</div>" +
       '<button type="button" class="gloss-toggle">看看怎么接话 ▾</button>' +
       '<div class="reply-block"><div class="r-label">可以这样接</div>' + esc(g.reply) + "</div>" +
-      "</div>"
+      "</article>"
     );
   }
 
@@ -47,7 +54,7 @@
       return (g.term + g.meaning + g.reply).toLowerCase().indexOf(q) !== -1;
     });
 
-    el("g-list").innerHTML = list.map(cardHTML).join("");
+    el("g-list").innerHTML = list.map(rowHTML).join("");
     el("g-empty").hidden = list.length > 0;
   }
 

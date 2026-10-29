@@ -10,19 +10,25 @@
   document.getElementById("g-intro").textContent = g.intro || "";
 
   document.getElementById("g-principles").innerHTML = (g.principles || [])
-    .map(function (p) {
-      return '<div class="info-card"><h4>' + esc(p.title) + "</h4><p>" + esc(p.body) + "</p></div>";
+    .map(function (p, i) {
+      return (
+        '<article class="doc-item">' +
+        '<div class="doc-head"><span class="doc-no" aria-hidden="true">' + (i + 1) + "</span>" +
+        "<h4>" + esc(p.title) + "</h4></div>" +
+        "<p>" + esc(p.body) + "</p></article>"
+      );
     })
     .join("");
 
   document.getElementById("g-methods").innerHTML = (g.methods || [])
     .map(function (m, i) {
       return (
-        '<div class="method-card">' +
-        "<h4><span class=\"method-no\">" + (i + 1) + "</span>" + esc(m.title) + "</h4>" +
-        '<span class="method-when">📍 ' + esc(m.when) + "</span>" +
+        '<article class="doc-item">' +
+        '<div class="doc-head"><span class="doc-no" aria-hidden="true">' + (i + 1) + "</span>" +
+        "<h4>" + esc(m.title) + "</h4></div>" +
+        '<span class="doc-when">' + esc(m.when) + "</span>" +
         "<p>" + esc(m.body) + "</p>" +
-        "</div>"
+        "</article>"
       );
     })
     .join("");
@@ -30,19 +36,22 @@
   document.getElementById("g-ages").innerHTML = (g.ages || [])
     .map(function (a) {
       return (
-        '<div class="info-card">' +
+        '<article class="doc-item">' +
         "<h4>" + esc(a.title) + "</h4>" +
         '<ul class="age-points">' +
         (a.points || []).map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") +
-        "</ul></div>"
+        "</ul></article>"
       );
     })
     .join("");
 
   document.getElementById("g-donts").innerHTML = (g.donts || [])
-    .map(function (d) {
+    .map(function (d, i) {
       return (
-        '<div class="info-card dont-card"><h4>✗ ' + esc(d.title) + "</h4><p>" + esc(d.body) + "</p></div>"
+        '<article class="doc-item dont">' +
+        '<div class="doc-head"><span class="doc-no" aria-hidden="true">' + (i + 1) + "</span>" +
+        "<h4>" + esc(d.title) + "</h4></div>" +
+        "<p>" + esc(d.body) + "</p></article>"
       );
     })
     .join("");

@@ -75,7 +75,7 @@
       : '<span class="empty-hint">留给自己的一句话：想留意她的什么？</span>';
 
     el("example-banner").innerHTML = v.isExample
-      ? '<div class="banner-tip">👀 这是一个示例档案，看看页面长什么样。<a href="#" id="link-edit">编辑成你女儿的</a></div>'
+      ? '<div class="banner-tip">这是一个示例档案，看看页面长什么样。<a href="#" id="link-edit">编辑成你女儿的</a></div>'
       : "";
     var link = el("link-edit");
     if (link) link.addEventListener("click", function (e) { e.preventDefault(); openEdit(); });

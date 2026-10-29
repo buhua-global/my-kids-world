@@ -15,9 +15,9 @@ function esc(s) {
 }
 
 const STICKERS = {
-  what: ["sticker-what", "📌 这是什么"],
-  why: ["sticker-why", "💗 她为什么喜欢"],
-  how: ["sticker-how", "💬 怎么聊"]
+  what: ["sticker-what", "这是什么"],
+  why: ["sticker-why", "她为什么喜欢"],
+  how: ["sticker-how", "怎么聊"]
 };
 
 function stickerHTML(kind) {
@@ -51,24 +51,28 @@ function stageLabel(stage) {
   return STAGE_LABELS[stage] || "初中篇";
 }
 
-/* 模块卡：顶部色条颜色来自模块自身品牌色，不随主题变 */
-function moduleCardHTML(m) {
+/* 目录条目：手账目录页原型——编号 + 模块色色块 + 标题/副题，点线分隔 */
+function tocItemHTML(m, i) {
+  var no = i + 1 < 10 ? "0" + (i + 1) : String(i + 1);
   return (
-    '<a class="module-card" style="--mcolor:' +
+    '<a class="toc-item" style="--mcolor:' +
     esc(m.color) +
     '" href="pages/module.html?id=' +
     encodeURIComponent(m.id) +
     '">' +
-    '<span class="m-stage"><i>幼</i><i>小</i><i>初</i><i>高</i></span>' +
-    '<div class="m-emoji">' +
-    esc(m.emoji) +
-    "</div>" +
-    '<div class="m-title">' +
+    '<span class="toc-no" aria-hidden="true">' +
+    no +
+    "</span>" +
+    '<span class="toc-swatch" aria-hidden="true"></span>' +
+    '<span class="toc-body">' +
+    '<span class="toc-title">' +
     esc(m.title) +
-    "</div>" +
-    '<div class="m-tagline">' +
+    "</span>" +
+    '<span class="toc-tagline">' +
     esc(m.tagline) +
-    "</div>" +
+    "</span>" +
+    "</span>" +
+    '<span class="toc-arrow" aria-hidden="true">→</span>' +
     "</a>"
   );
 }
@@ -106,6 +110,6 @@ function initReveal(scope) {
         io.unobserve(en.target);
       }
     });
-  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0 });
   els.forEach(function (el) { io.observe(el); });
 }

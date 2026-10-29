@@ -15,6 +15,7 @@
       try {
         var t = localStorage.getItem("dw-theme");
         if (t) document.documentElement.dataset.theme = t;
+        if ("IntersectionObserver" in window) document.documentElement.classList.add("io");
       } catch (e) {}
     })();
   </script>
@@ -50,25 +51,25 @@
     <section class="section reveal">
       <h2 class="section-title">七条底层原理</h2>
       <p class="section-desc">不是鸡汤，是被反复验证的心理学共识。知道「为什么」，方法才用得活。</p>
-      <div class="layer-cards" id="g-principles"></div>
+      <div class="doc-list" id="g-principles"></div>
     </section>
 
     <section class="section reveal">
       <h2 class="section-title">八个实战方法</h2>
       <p class="section-desc">每种方法都标了适用场景。挑一两个，本周就能用。</p>
-      <div class="guide-grid" id="g-methods"></div>
+      <div class="doc-list" id="g-methods"></div>
     </section>
 
     <section class="section reveal">
       <h2 class="section-title">分年龄备忘</h2>
       <p class="section-desc">幼儿园和小学，聊天的方式完全不同。</p>
-      <div class="layer-cards" id="g-ages"></div>
+      <div class="doc-list" id="g-ages"></div>
     </section>
 
     <section class="section reveal">
       <h2 class="section-title">六种最伤聊天的方式</h2>
       <p class="section-desc">都是无心的，但都真实地关上过她的嘴。</p>
-      <div class="layer-cards" id="g-donts"></div>
+      <div class="doc-list" id="g-donts"></div>
     </section>
   </main>
 

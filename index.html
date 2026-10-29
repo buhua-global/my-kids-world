@@ -15,6 +15,7 @@
       try {
         var t = localStorage.getItem("dw-theme");
         if (t) document.documentElement.dataset.theme = t;
+        if ("IntersectionObserver" in window) document.documentElement.classList.add("io");
       } catch (e) {}
     })();
   </script>
@@ -95,7 +96,6 @@
       <h1 id="greeting">欢迎回家</h1>
       <p class="hero-sub">这里不是调查问卷，是女儿世界的一扇小窗——慢慢看，不用急。</p>
       <div class="tip-card">
-        <span class="tip-icon">🌼</span>
         <div>
           <div class="tip-label">今日小贴士</div>
           <p id="tip-text" class="mt-0"></p>
@@ -116,15 +116,15 @@
       </a>
     </section>
 
-    <section class="section reveal">
+    <section class="section-lg reveal">
       <h2 class="section-title">她的八个世界</h2>
       <p class="section-desc">每个世界都分「幼儿园 / 小学 / 初中 / 高中」四个学段，各三层内容：是什么、她为什么喜欢、怎么聊。</p>
-      <div class="grid-modules reveal-stagger" id="module-grid"></div>
+      <nav class="toc" id="module-grid" aria-label="她的八个世界"></nav>
     </section>
 
     <hr class="divider" />
 
-    <section class="section reveal">
+    <section class="section-lg reveal">
       <h2 class="section-title">写给家长的话</h2>
       <div class="letter">
         <p>无论是五岁还是十五岁，女孩都在用她自己的方式认识世界。她看的动画、听的歌、玩的游戏、挂在嘴边的词，都不是「问题」，而是她在练习成为谁。</p>
@@ -174,7 +174,7 @@
       }
 
       document.getElementById("module-grid").innerHTML = window.DATA.modules
-        .map(moduleCardHTML)
+        .map(tocItemHTML)
         .join("");
 
       initThemeSwitcher();

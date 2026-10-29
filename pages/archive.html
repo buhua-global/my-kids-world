@@ -15,6 +15,7 @@
       try {
         var t = localStorage.getItem("dw-theme");
         if (t) document.documentElement.dataset.theme = t;
+        if ("IntersectionObserver" in window) document.documentElement.classList.add("io");
       } catch (e) {}
     })();
   </script>
@@ -47,7 +48,7 @@
       <div class="profile-head">
         <span class="avatar" id="p-avatar">🌸</span>
         <div>
-          <div class="p-name" id="p-name">女儿</div>
+          <h1 class="p-name" id="p-name">女儿</h1>
           <div class="p-intro" id="p-intro"></div>
         </div>
       </div>
@@ -82,7 +83,7 @@
 
       <section class="section reveal">
         <div class="form-actions">
-          <button type="button" class="btn btn-primary" id="btn-edit">✏️ 编辑档案</button>
+          <button type="button" class="btn btn-primary" id="btn-edit">编辑档案</button>
           <button type="button" class="btn btn-ghost" id="btn-clear" hidden>清空档案，回到示例</button>
         </div>
       </section>

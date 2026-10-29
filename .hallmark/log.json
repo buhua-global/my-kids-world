@@ -1,5 +1,23 @@
 [
   {
+    "date": "2026-10-28",
+    "macrostructure": "Journal Front Page(TOC) + Workbench + Long Document (families, v2)",
+    "theme": "4-theme token system (journal / dream / minimal / vintage) · v2 token 修订",
+    "theme_axes": "light paper all / kai display / warm-cool mixed accents",
+    "enrichment": "E5 hand-built SVG（hero 窗保留；卡片墙/emoji 图标退役，新增目录条目/词条行/登记表/文档流）",
+    "brief": "女儿的世界 · 反 AI slop 二次优化：破卡片汤、emoji 界面退役、装饰收敛（旋转≤3/dashed 归贴纸类）、节奏两档 30/64、对比度硬指标（text-soft ≥4.5:1、focus ≥3:1、vintage on-primary 修复）",
+    "scope": "app"
+  },
+  {
+    "date": "2026-10-28",
+    "macrostructure": "同 v2（查漏补缺 pass）",
+    "theme": "v2 + --danger-ink 新增（journal/dream/minimal/vintage 深色档）；vintage accent-2 调亮 #D4B37C",
+    "theme_axes": "light paper all / kai display / warm-cool mixed accents",
+    "enrichment": "none（修补 pass：模块/档案页补 h1；滚动浮现真正实现——html.io 门控 + threshold 0；vintage 提示条对比 4.32→4.98）",
+    "brief": "女儿的世界 · v2 查漏补缺：danger 文字色 4 主题达标（红线标题/词典热标/禁忌标题）、reveal 动效从空头支票变真、页面 h1 层级补齐",
+    "scope": "app"
+  },
+  {
     "date": "2026-09-24",
     "macrostructure": "Journal Front Page + Workbench + Long Document (families)",
     "theme": "4-theme token system (journal / dream / minimal / vintage)",

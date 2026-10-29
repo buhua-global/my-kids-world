@@ -15,6 +15,7 @@
       try {
         var t = localStorage.getItem("dw-theme");
         if (t) document.documentElement.dataset.theme = t;
+        if ("IntersectionObserver" in window) document.documentElement.classList.add("io");
       } catch (e) {}
     })();
   </script>
@@ -51,7 +52,7 @@
 
     <div class="tabs" id="g-tabs" role="tablist" aria-label="按世界筛选"></div>
 
-    <div class="gloss-grid" id="g-list"></div>
+    <div class="dict-grid" id="g-list"></div>
     <div class="gloss-empty" id="g-empty" hidden>没找到这个词……换个说法试试？</div>
   </main>
 
